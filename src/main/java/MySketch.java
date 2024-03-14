@@ -12,6 +12,7 @@ public class MySketch extends PApplet {
 	ControlP5 cp5;
 	int points = 5;
 	float maxVelocity = 5;
+	boolean tringles = false;
 
 	ArrayList<Ball> balls = new ArrayList<Ball>();
 	public void setup() {
@@ -34,6 +35,9 @@ public class MySketch extends PApplet {
 				.setSize(100, 20).onChange( value -> {
 						Ball.maxVelocity = maxVelocity;
 				});
+		cp5.addToggle("tringles")
+				.setPosition(10, 70)
+				.setSize(100, 20);
 	}
 
 
@@ -46,6 +50,7 @@ public class MySketch extends PApplet {
 	public void draw(){
 		Ball.width = width;
 		Ball.height = height;
+		Ball.tringles = tringles;
 		background(64);
 		ellipse(mouseX, mouseY, 20, 20);
 		for (var ball : balls) {
